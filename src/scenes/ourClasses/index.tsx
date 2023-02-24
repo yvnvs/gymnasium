@@ -1,4 +1,4 @@
-import { ClassType, SelectedPage } from "@/shared/types";
+import { SelectedPage, ClassType } from "@/shared/types";
 import image1 from "@/assets/image1.png";
 import image2 from "@/assets/image2.png";
 import image3 from "@/assets/image3.png";
@@ -45,7 +45,7 @@ const classes: Array<ClassType> = [
 ];
 
 type Props = {
-  setSelectedPage: (value: SelectedPage.OurClasses) => void;
+  setSelectedPage: (value: SelectedPage) => void;
 };
 
 const OurClasses = ({ setSelectedPage }: Props) => {
@@ -59,7 +59,7 @@ const OurClasses = ({ setSelectedPage }: Props) => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.5 }}
-          transition={{ delay: 0.2, duration: 0.5 }}
+          transition={{ duration: 0.5 }}
           variants={{
             hidden: { opacity: 0, x: -50 },
             visible: { opacity: 1, x: 0 },
@@ -68,7 +68,6 @@ const OurClasses = ({ setSelectedPage }: Props) => {
           <div className="md:w-3/5">
             <HText>OUR CLASSES</HText>
             <p className="py-5">
-              {" "}
               Fringilla a sed at suspendisse ut enim volutpat. Rhoncus vel est
               tellus quam porttitor. Mauris velit euismod elementum arcu neque
               facilisi. Amet semper tortor facilisis metus nibh. Rhoncus sit

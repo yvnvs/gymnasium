@@ -1,6 +1,6 @@
+import { useForm } from "react-hook-form";
 import { SelectedPage } from "@/shared/types";
 import { motion } from "framer-motion";
-import { useForm } from "react-hook-form";
 import ContactUsPageGraphic from "@/assets/ContactUsPageGraphic.png";
 import HText from "@/shared/HText";
 
@@ -9,7 +9,9 @@ type Props = {
 };
 
 const ContactUs = ({ setSelectedPage }: Props) => {
-  const inputStyles = `mb-5 w-full rounded-lg bg-primary-300 px-5 py-3 placeholder-white`;
+  const inputStyles = `mb-5 w-full rounded-lg bg-primary-300
+  px-5 py-3 placeholder-white`;
+
   const {
     register,
     trigger,
@@ -22,6 +24,7 @@ const ContactUs = ({ setSelectedPage }: Props) => {
       e.preventDefault();
     }
   };
+
   return (
     <section id="contactus" className="mx-auto w-5/6 pt-24 pb-32">
       <motion.div
@@ -33,7 +36,7 @@ const ContactUs = ({ setSelectedPage }: Props) => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.5 }}
-          transition={{ delay: 0.2, duration: 0.5 }}
+          transition={{ duration: 0.5 }}
           variants={{
             hidden: { opacity: 0, x: -50 },
             visible: { opacity: 1, x: 0 },
@@ -56,7 +59,7 @@ const ContactUs = ({ setSelectedPage }: Props) => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.5 }}
-            transition={{ delay: 0.2, duration: 0.5 }}
+            transition={{ duration: 0.5 }}
             variants={{
               hidden: { opacity: 0, y: 50 },
               visible: { opacity: 1, y: 0 },
@@ -65,12 +68,12 @@ const ContactUs = ({ setSelectedPage }: Props) => {
             <form
               target="_blank"
               onSubmit={onSubmit}
-              action="https://formsubmit.co/yunusinne@gmail.com"
+              action="https://formsubmit.co/e8a5bdfa807605332f809e5656e27c6e"
               method="POST"
             >
               <input
-                type="text"
                 className={inputStyles}
+                type="text"
                 placeholder="NAME"
                 {...register("name", {
                   required: true,
@@ -86,8 +89,8 @@ const ContactUs = ({ setSelectedPage }: Props) => {
               )}
 
               <input
-                type="text"
                 className={inputStyles}
+                type="text"
                 placeholder="EMAIL"
                 {...register("email", {
                   required: true,
@@ -98,15 +101,15 @@ const ContactUs = ({ setSelectedPage }: Props) => {
                 <p className="mt-1 text-primary-500">
                   {errors.email.type === "required" &&
                     "This field is required."}
-                  {errors.email.type === "pattern" && "invalid email address."}
+                  {errors.email.type === "pattern" && "Invalid email address."}
                 </p>
               )}
 
               <textarea
                 className={inputStyles}
+                placeholder="MESSAGE"
                 rows={4}
                 cols={50}
-                placeholder="MESSAGE"
                 {...register("message", {
                   required: true,
                   maxLength: 2000,
@@ -116,14 +119,14 @@ const ContactUs = ({ setSelectedPage }: Props) => {
                 <p className="mt-1 text-primary-500">
                   {errors.message.type === "required" &&
                     "This field is required."}
-                  {errors.message.type === "pattern" &&
+                  {errors.message.type === "maxLength" &&
                     "Max length is 2000 char."}
                 </p>
               )}
 
               <button
                 type="submit"
-                className="transi mt-5 rounded-lg bg-secondary-500 px-20 py-3 transition duration-500 hover:text-white"
+                className="mt-5 rounded-lg bg-secondary-500 px-20 py-3 transition duration-500 hover:text-white"
               >
                 SUBMIT
               </button>
@@ -143,9 +146,9 @@ const ContactUs = ({ setSelectedPage }: Props) => {
           >
             <div className="w-full before:absolute before:-bottom-20 before:-right-10 before:z-[-1] md:before:content-evolvetext">
               <img
-                src={ContactUsPageGraphic}
-                alt="contact-us-page-graphic"
                 className="w-full"
+                alt="contact-us-page-graphic"
+                src={ContactUsPageGraphic}
               />
             </div>
           </motion.div>
